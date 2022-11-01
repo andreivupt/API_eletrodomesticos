@@ -17,7 +17,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Products::paginate(5);
+        $products = Products::OrderBy('id', 'desc')->paginate(6);
         return ProductsResource::collection($products);
     }
 
@@ -26,7 +26,7 @@ class ProductsController extends Controller
      */
     public function getBrands()
     {
-        $brands = Products::select('DS_BRAND')->get();
+        $brands = Products::select('DS_BRAND')->get()->OrderBy('desc');
         return ProductsResource::collection($brands);
     }
 
@@ -82,7 +82,7 @@ class ProductsController extends Controller
         $product->NM_VALUE       = $request->input('NM_VALUE');
         $product->FL_STATUS      = $request->input('FL_STATUS');
 
-        if ($product->save()) {
+        if ($product->update()) {
             return new ProductsResource($product);
         }
     }

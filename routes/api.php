@@ -29,4 +29,4 @@ Route::post('product', [ProductsController::class, 'store']);
 
 Route::put('product/{id}', [ProductsController::class, 'update']);
 
-Route::delete('product/{id}', [ProductsController::class, 'delete']);
+Route::delete('product/{id}', [ProductsController::class, 'destroy']);
