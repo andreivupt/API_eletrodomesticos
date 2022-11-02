@@ -24,10 +24,10 @@ class ProductsController extends Controller
     /**
      * @return void
      */
-    public function getBrands()
+    public function brands()
     {
-        $brands = Products::select('DS_BRAND')->get()->OrderBy('desc');
-        return ProductsResource::collection($brands);
+        $brands = Products::select('id', 'DS_BRAND')->get();
+        return response()->json($brands);
     }
 
     /**

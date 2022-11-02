@@ -29,7 +29,8 @@ class ProductStoreRequest extends FormRequest
             'DS_NAME'        => 'required|string|max:100',
             'DS_DESCRIPTION' => 'required|string',
             'DS_BRAND'       => 'required|string',
-            'NM_BAR_CODE'    => 'required|numeric'
+            'NM_BAR_CODE'    => 'required|numeric',
+            'NM_VALUE'       => 'numeric'
         ];
     }
 
@@ -57,6 +58,8 @@ class ProductStoreRequest extends FormRequest
 
             'NM_BAR_CODE.required' => 'O código do produto é obrigatório',
             'NM_BAR_CODE.numeric'  => 'O código do produto precisa ser um número',
+
+            'NM_VALUE.numeric'  => 'O valor do produto precisa ser um número',
         ];
     }
 }
